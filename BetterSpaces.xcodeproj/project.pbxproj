@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D43DD05B27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DD05A27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift */; };
+		D43DD05D27D8DB2B00AB73B7 /* SpaceSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DD05C27D8DB2B00AB73B7 /* SpaceSelector.swift */; };
+		D497AD2727D89AA400039509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD2627D89AA400039509 /* AppDelegate.swift */; };
+		D497AD2B27D89AA500039509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D497AD2A27D89AA500039509 /* Assets.xcassets */; };
+		D497AD3927D89AA500039509 /* BetterSpacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD3827D89AA500039509 /* BetterSpacesTests.swift */; };
+		D497AD4327D89AA500039509 /* BetterSpacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD4227D89AA500039509 /* BetterSpacesUITests.swift */; };
+		D497AD4527D89AA500039509 /* BetterSpacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD4427D89AA500039509 /* BetterSpacesUITestsLaunchTests.swift */; };
+		D497AD5227D89BEA00039509 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD5127D89BEA00039509 /* main.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D497AD3527D89AA500039509 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D497AD1B27D89AA400039509 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D497AD2227D89AA400039509;
+			remoteInfo = BetterSpaces;
+		};
+		D497AD3F27D89AA500039509 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D497AD1B27D89AA400039509 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D497AD2227D89AA400039509;
+			remoteInfo = BetterSpaces;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D43DD05527D8A60B00AB73B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D43DD05A27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSwitchingIndicatorView.swift; sourceTree = "<group>"; };
+		D43DD05C27D8DB2B00AB73B7 /* SpaceSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSelector.swift; sourceTree = "<group>"; };
+		D497AD2327D89AA400039509 /* BetterSpaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterSpaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D497AD2627D89AA400039509 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D497AD2A27D89AA500039509 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D497AD2F27D89AA500039509 /* BetterSpaces.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BetterSpaces.entitlements; sourceTree = "<group>"; };
+		D497AD3427D89AA500039509 /* BetterSpacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterSpacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D497AD3827D89AA500039509 /* BetterSpacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSpacesTests.swift; sourceTree = "<group>"; };
+		D497AD3E27D89AA500039509 /* BetterSpacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterSpacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D497AD4227D89AA500039509 /* BetterSpacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSpacesUITests.swift; sourceTree = "<group>"; };
+		D497AD4427D89AA500039509 /* BetterSpacesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSpacesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D497AD5127D89BEA00039509 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D497AD2027D89AA400039509 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497AD3127D89AA500039509 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497AD3B27D89AA500039509 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D497AD1A27D89AA400039509 = {
+			isa = PBXGroup;
+			children = (
+				D497AD2527D89AA400039509 /* BetterSpaces */,
+				D497AD3727D89AA500039509 /* BetterSpacesTests */,
+				D497AD4127D89AA500039509 /* BetterSpacesUITests */,
+				D497AD2427D89AA400039509 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D497AD2427D89AA400039509 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D497AD2327D89AA400039509 /* BetterSpaces.app */,
+				D497AD3427D89AA500039509 /* BetterSpacesTests.xctest */,
+				D497AD3E27D89AA500039509 /* BetterSpacesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D497AD2527D89AA400039509 /* BetterSpaces */ = {
+			isa = PBXGroup;
+			children = (
+				D43DD05527D8A60B00AB73B7 /* Info.plist */,
+				D497AD2627D89AA400039509 /* AppDelegate.swift */,
+				D43DD05A27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift */,
+				D497AD2A27D89AA500039509 /* Assets.xcassets */,
+				D497AD2F27D89AA500039509 /* BetterSpaces.entitlements */,
+				D497AD5127D89BEA00039509 /* main.swift */,
+				D43DD05C27D8DB2B00AB73B7 /* SpaceSelector.swift */,
+			);
+			path = BetterSpaces;
+			sourceTree = "<group>";
+		};
+		D497AD3727D89AA500039509 /* BetterSpacesTests */ = {
+			isa = PBXGroup;
+			children = (
+				D497AD3827D89AA500039509 /* BetterSpacesTests.swift */,
+			);
+			path = BetterSpacesTests;
+			sourceTree = "<group>";
+		};
+		D497AD4127D89AA500039509 /* BetterSpacesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D497AD4227D89AA500039509 /* BetterSpacesUITests.swift */,
+				D497AD4427D89AA500039509 /* BetterSpacesUITestsLaunchTests.swift */,
+			);
+			path = BetterSpacesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D497AD2227D89AA400039509 /* BetterSpaces */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D497AD4827D89AA500039509 /* Build configuration list for PBXNativeTarget "BetterSpaces" */;
+			buildPhases = (
+				D497AD1F27D89AA400039509 /* Sources */,
+				D497AD2027D89AA400039509 /* Frameworks */,
+				D497AD2127D89AA400039509 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BetterSpaces;
+			productName = BetterSpaces;
+			productReference = D497AD2327D89AA400039509 /* BetterSpaces.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D497AD3327D89AA500039509 /* BetterSpacesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D497AD4B27D89AA500039509 /* Build configuration list for PBXNativeTarget "BetterSpacesTests" */;
+			buildPhases = (
+				D497AD3027D89AA500039509 /* Sources */,
+				D497AD3127D89AA500039509 /* Frameworks */,
+				D497AD3227D89AA500039509 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D497AD3627D89AA500039509 /* PBXTargetDependency */,
+			);
+			name = BetterSpacesTests;
+			productName = BetterSpacesTests;
+			productReference = D497AD3427D89AA500039509 /* BetterSpacesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D497AD3D27D89AA500039509 /* BetterSpacesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D497AD4E27D89AA500039509 /* Build configuration list for PBXNativeTarget "BetterSpacesUITests" */;
+			buildPhases = (
+				D497AD3A27D89AA500039509 /* Sources */,
+				D497AD3B27D89AA500039509 /* Frameworks */,
+				D497AD3C27D89AA500039509 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D497AD4027D89AA500039509 /* PBXTargetDependency */,
+			);
+			name = BetterSpacesUITests;
+			productName = BetterSpacesUITests;
+			productReference = D497AD3E27D89AA500039509 /* BetterSpacesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D497AD1B27D89AA400039509 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					D497AD2227D89AA400039509 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D497AD3327D89AA500039509 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = D497AD2227D89AA400039509;
+					};
+					D497AD3D27D89AA500039509 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = D497AD2227D89AA400039509;
+					};
+				};
+			};
+			buildConfigurationList = D497AD1E27D89AA400039509 /* Build configuration list for PBXProject "BetterSpaces" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D497AD1A27D89AA400039509;
+			productRefGroup = D497AD2427D89AA400039509 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D497AD2227D89AA400039509 /* BetterSpaces */,
+				D497AD3327D89AA500039509 /* BetterSpacesTests */,
+				D497AD3D27D89AA500039509 /* BetterSpacesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D497AD2127D89AA400039509 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D497AD2B27D89AA500039509 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497AD3227D89AA500039509 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497AD3C27D89AA500039509 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D497AD1F27D89AA400039509 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D43DD05B27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift in Sources */,
+				D497AD2727D89AA400039509 /* AppDelegate.swift in Sources */,
+				D497AD5227D89BEA00039509 /* main.swift in Sources */,
+				D43DD05D27D8DB2B00AB73B7 /* SpaceSelector.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497AD3027D89AA500039509 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D497AD3927D89AA500039509 /* BetterSpacesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D497AD3A27D89AA500039509 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D497AD4327D89AA500039509 /* BetterSpacesUITests.swift in Sources */,
+				D497AD4527D89AA500039509 /* BetterSpacesUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D497AD3627D89AA500039509 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D497AD2227D89AA400039509 /* BetterSpaces */;
+			targetProxy = D497AD3527D89AA500039509 /* PBXContainerItemProxy */;
+		};
+		D497AD4027D89AA500039509 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D497AD2227D89AA400039509 /* BetterSpaces */;
+			targetProxy = D497AD3F27D89AA500039509 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D497AD4627D89AA500039509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D497AD4727D89AA500039509 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D497AD4927D89AA500039509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BetterSpaces/BetterSpaces.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87HW4DA4VV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BetterSpaces/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arkea.BetterSpaces;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D497AD4A27D89AA500039509 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BetterSpaces/BetterSpaces.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87HW4DA4VV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BetterSpaces/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arkea.BetterSpaces;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D497AD4C27D89AA500039509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87HW4DA4VV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arkea.BetterSpacesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BetterSpaces.app/Contents/MacOS/BetterSpaces";
+			};
+			name = Debug;
+		};
+		D497AD4D27D89AA500039509 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87HW4DA4VV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arkea.BetterSpacesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BetterSpaces.app/Contents/MacOS/BetterSpaces";
+			};
+			name = Release;
+		};
+		D497AD4F27D89AA500039509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87HW4DA4VV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arkea.BetterSpacesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = BetterSpaces;
+			};
+			name = Debug;
+		};
+		D497AD5027D89AA500039509 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 87HW4DA4VV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arkea.BetterSpacesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = BetterSpaces;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D497AD1E27D89AA400039509 /* Build configuration list for PBXProject "BetterSpaces" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D497AD4627D89AA500039509 /* Debug */,
+				D497AD4727D89AA500039509 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D497AD4827D89AA500039509 /* Build configuration list for PBXNativeTarget "BetterSpaces" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D497AD4927D89AA500039509 /* Debug */,
+				D497AD4A27D89AA500039509 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D497AD4B27D89AA500039509 /* Build configuration list for PBXNativeTarget "BetterSpacesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D497AD4C27D89AA500039509 /* Debug */,
+				D497AD4D27D89AA500039509 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D497AD4E27D89AA500039509 /* Build configuration list for PBXNativeTarget "BetterSpacesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D497AD4F27D89AA500039509 /* Debug */,
+				D497AD5027D89AA500039509 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D497AD1B27D89AA400039509 /* Project object */;
+}
