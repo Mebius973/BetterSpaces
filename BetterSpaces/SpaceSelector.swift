@@ -8,5 +8,5 @@
 import Foundation
 
 class SpaceSelector: ObservableObject {
-    @Published var selectedSpace: Int = 1
+    @Published var selectedSpace: Int = 3
 }

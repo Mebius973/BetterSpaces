@@ -8,12 +8,19 @@
 import Foundation
 
 struct Shell {
-    static func execute(_ command: String) -> Int32 {
+    static func execute(_ command: String) -> String {
         let task = Process()
+        let pipe = Pipe()
+        
+        task.standardOutput = pipe
+        task.standardError = pipe
         task.launchPath = "/usr/bin/env"
         task.arguments = ["bash", "-c", command]
         task.launch()
         task.waitUntilExit()
-        return task.terminationStatus
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output = String(data: data, encoding: .utf8)!
+        
+        return output.replacingOccurrences(of: "\n", with: "")
     }
 }

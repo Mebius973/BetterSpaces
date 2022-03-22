@@ -9,22 +9,26 @@ import Cocoa
 import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    private var view: SpaceSwitchingIndicatorView!
+    private var view: SpaceSwitcherView!
     private var window: NSWindow!
     private var statusItem: NSStatusItem!
     private var spaceSelector = SpaceSelector()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        view = SpaceSwitchingIndicatorView(rows: 3, columns: 3, spaceSelector: spaceSelector)
+        
         
         window = NSWindow(
                    contentRect: NSRect(x: 0, y: 0, width: 480, height: 270),
-                   styleMask: [.borderless],
+                   styleMask: [.closable],
                    backing: .buffered, defer: false)
         window.center()
         window.backgroundColor = .clear
-        window.contentView = NSHostingView(rootView: view)
         window.setIsVisible(false)
+        
+        let indicatorView = SpaceSwitchingIndicatorView(rows: 3, columns: 3, spaceSelector: spaceSelector)
+        view = SpaceSwitcherView(window: window, indicatorView: indicatorView, spaceSelector: spaceSelector)
+        
+        window.contentView = NSHostingView(rootView: indicatorView)
         
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let button = statusItem.button {
@@ -33,6 +37,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         setupMenus()
         
+        let controller = SpaceSwitcherController(spaceSelector: spaceSelector, spaceSwitcherViewDelegate: view)
+        
+        EventListener.spaceSwitcherDelegate = controller
         EventListener().register()
     }
     

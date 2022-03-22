@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Carbon
-import HotKey
 
 extension String {
   /// This converts string to UInt as a fourCharCode
@@ -26,84 +25,36 @@ extension String {
 }
 
 class EventListener {
-    var opt = false
+    static var spaceSwitcherDelegate: SpaceSwitcherControllerProtocol?
+    var mainModifier: NSEvent.ModifierFlags = .control
+    var secondaryModifier: NSEvent.ModifierFlags = .option
+    var isSecondaryModifierPressed = false
+    var eventHandlerRef: EventHandlerRef?
     
     func register() {
+        var modifierFlags: UInt32 = self.getCarbonFlagsFromCocoaFlags(cocoaFlags: self.mainModifier)
+        self.registerKeys(modifierFlags: modifierFlags)
+        modifierFlags += self.getCarbonFlagsFromCocoaFlags(cocoaFlags: self.secondaryModifier)
+        self.registerKeys(modifierFlags: modifierFlags)
+        
         NSEvent.addGlobalMonitorForEvents(matching: .flagsChanged) { event in
-            self.opt = event.modifierFlags.contains(.option)
-
-            if self.opt {
-                self.registerWindowHotkeys()
-                var modifierFlags: UInt32 = self.getCarbonFlagsFromCocoaFlags(cocoaFlags: .control)
-                modifierFlags += self.getCarbonFlagsFromCocoaFlags(cocoaFlags: .option)
-                self.registerKeys(modifierFlags: modifierFlags)
-                
+            self.clearHandler()
+            self.isSecondaryModifierPressed = event.modifierFlags.contains(self.secondaryModifier)
+            if self.isSecondaryModifierPressed {
+                self.registerWindowHandler()
             } else {
-                self.registerMoveHotkeys()
-                var modifierFlags: UInt32 = self.getCarbonFlagsFromCocoaFlags(cocoaFlags: .control)
-                self.registerKeys(modifierFlags: modifierFlags)
+                self.registerSpaceHandler()
             }
         }
-//        addListener()
-//        registerKeys()
     }
     
-    func registerWindowHotkeys() {
-        var eventType = EventTypeSpec()
-        eventType.eventClass = OSType(kEventClassKeyboard)
-        eventType.eventKind = OSType(kEventHotKeyReleased)
-
-        InstallEventHandler(GetApplicationEventTarget(), {
-          (nextHanlder, theEvent, userData) -> OSStatus in
-            var hkCom = EventHotKeyID()
-            GetEventParameter(theEvent, EventParamName(kEventParamDirectObject), EventParamType(typeEventHotKeyID), nil,  MemoryLayout<EventHotKeyID>.size, nil, &hkCom)
-            switch hkCom.id {
-            case UInt32(kVK_LeftArrow):
-                let command = Commands.MoveWindowLeft.rawValue
-                return Shell.execute(command)
-            case UInt32(kVK_RightArrow):
-                let command = Commands.MoveWindowRight.rawValue
-                return Shell.execute(command)
-            case UInt32(kVK_UpArrow):
-                let command = Commands.MoveWindowUp.rawValue
-                return Shell.execute(command)
-            case UInt32(kVK_DownArrow):
-                let command = Commands.MoveWindowDown.rawValue
-                return Shell.execute(command)
-            default:
-                return 0
-            }
-        }, 1, &eventType, nil, nil)
-    }
-    func registerMoveHotkeys() {
-        var eventType = EventTypeSpec()
-        eventType.eventClass = OSType(kEventClassKeyboard)
-        eventType.eventKind = OSType(kEventHotKeyReleased)
-
-        InstallEventHandler(GetApplicationEventTarget(), {
-          (nextHanlder, theEvent, userData) -> OSStatus in
-            var hkCom = EventHotKeyID()
-            GetEventParameter(theEvent, EventParamName(kEventParamDirectObject), EventParamType(typeEventHotKeyID), nil,  MemoryLayout<EventHotKeyID>.size, nil, &hkCom)
-            switch hkCom.id {
-            case UInt32(kVK_LeftArrow):
-                let command = Commands.MoveLeft.rawValue
-                return Shell.execute(command)
-            case UInt32(kVK_RightArrow):
-                let command = Commands.MoveRight.rawValue
-                return Shell.execute(command)
-            case UInt32(kVK_UpArrow):
-                let command = Commands.MoveUp.rawValue
-                return Shell.execute(command)
-            case UInt32(kVK_DownArrow):
-                let command = Commands.MoveDown.rawValue
-                return Shell.execute(command)
-            default:
-                return 0
-            }
-        }, 1, &eventType, nil, nil)
+    func clearHandler() {
+        if let eventHandlerRef = eventHandlerRef {
+            RemoveEventHandler(eventHandlerRef)
+        }
     }
     
-    func addListener() {
+    func registerSpaceHandler() {
         var eventType = EventTypeSpec()
         eventType.eventClass = OSType(kEventClassKeyboard)
         eventType.eventKind = OSType(kEventHotKeyReleased)
@@ -112,23 +63,57 @@ class EventListener {
           (nextHanlder, theEvent, userData) -> OSStatus in
             var hkCom = EventHotKeyID()
             GetEventParameter(theEvent, EventParamName(kEventParamDirectObject), EventParamType(typeEventHotKeyID), nil,  MemoryLayout<EventHotKeyID>.size, nil, &hkCom)
+            EventListener.MoveSpacesHanlder(hkCom: hkCom)
+            return 0
+        }, 1, &eventType, nil, &eventHandlerRef)
+    }
+    
+    func registerWindowHandler() {
+        var eventType = EventTypeSpec()
+        eventType.eventClass = OSType(kEventClassKeyboard)
+        eventType.eventKind = OSType(kEventHotKeyReleased)
+
+        InstallEventHandler(GetApplicationEventTarget(), {
+          (nextHanlder, theEvent, userData) -> OSStatus in
+            var hkCom = EventHotKeyID()
+            GetEventParameter(theEvent, EventParamName(kEventParamDirectObject), EventParamType(typeEventHotKeyID), nil,  MemoryLayout<EventHotKeyID>.size, nil, &hkCom)
+            EventListener.MoveWindowsHanlder(hkCom: hkCom)
+            return 0
+        }, 1, &eventType, nil, &eventHandlerRef)
+    }
+    
+    static func MoveSpacesHanlder(hkCom: EventHotKeyID) {
+        if let spaceSwitcher = EventListener.spaceSwitcherDelegate {
             switch hkCom.id {
             case UInt32(kVK_LeftArrow):
-                let command = Commands.MoveLeft.rawValue
-                return Shell.execute(command)
+                spaceSwitcher.switchSpaceLeft()
             case UInt32(kVK_RightArrow):
-                let command = Commands.MoveRight.rawValue
-                return Shell.execute(command)
+                spaceSwitcher.switchSpaceRight()
             case UInt32(kVK_UpArrow):
-                let command = Commands.MoveUp.rawValue
-                return Shell.execute(command)
+                spaceSwitcher.switchSpaceUp()
             case UInt32(kVK_DownArrow):
-                let command = Commands.MoveDown.rawValue
-                return Shell.execute(command)
+                spaceSwitcher.switchSpaceDown()
             default:
-                return 0
+                return
             }
-        }, 1, &eventType, nil, nil)
+        }
+    }
+    
+    static func MoveWindowsHanlder(hkCom: EventHotKeyID) {
+        if let spaceSwitcher = EventListener.spaceSwitcherDelegate {
+            switch hkCom.id {
+            case UInt32(kVK_LeftArrow):
+                spaceSwitcher.switchWindowLeft()
+            case UInt32(kVK_RightArrow):
+                spaceSwitcher.switchWindowRight()
+            case UInt32(kVK_UpArrow):
+                spaceSwitcher.switchWindowUp()
+            case UInt32(kVK_DownArrow):
+                spaceSwitcher.switchWindowDown()
+            default:
+                return
+            }
+        }
     }
     
     func registerKeys(modifierFlags: UInt32) {

@@ -14,14 +14,14 @@ struct SpaceSwitchingIndicatorView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(.pink)
+                .foregroundColor(.clear)
             VStack(spacing: 5) {
                 ForEach(0...rows-1, id: \.self) { i in
                     HStack(spacing: 5) {
                         ForEach(0...columns-1, id: \.self) { j in
                             RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(
-                                    spaceSelector.selectedSpace == i*rows+j ?  Color(.sRGB, red: 10, green: 10, blue: 10, opacity: 1) : .gray)
+                                    spaceSelector.selectedSpace == i*rows+j+1 ?  Color(.sRGB, red: 10, green: 10, blue: 10, opacity: 1) : .gray)
                         }
                     }.padding(0)
                     }

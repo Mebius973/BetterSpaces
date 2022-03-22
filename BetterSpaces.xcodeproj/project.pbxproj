@@ -8,7 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D403FA9E27E86EF700BF3BEB /* EventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403FA9D27E86EF700BF3BEB /* EventListener.swift */; };
-		D43DD05B27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DD05A27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift */; };
+		D42DEE0B27EA215D0070F519 /* SpaceSwitcherViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DEE0A27EA215D0070F519 /* SpaceSwitcherViewProtocol.swift */; };
+		D42DEE0D27EA22100070F519 /* SpaceSwitcherControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DEE0C27EA22100070F519 /* SpaceSwitcherControllerProtocol.swift */; };
+		D42DEE0F27EA22D10070F519 /* SpaceSwitcherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DEE0E27EA22D10070F519 /* SpaceSwitcherController.swift */; };
+		D42DEE1127EA28430070F519 /* SpaceSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DEE1027EA28430070F519 /* SpaceSwitcherView.swift */; };
+		D42DEE1327EA30430070F519 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DEE1227EA30430070F519 /* Config.swift */; };
+		D43DD05B27D8AAF300AB73B7 /* SpaceSwitcherIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DD05A27D8AAF300AB73B7 /* SpaceSwitcherIndicatorView.swift */; };
 		D43DD05D27D8DB2B00AB73B7 /* SpaceSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DD05C27D8DB2B00AB73B7 /* SpaceSelector.swift */; };
 		D497AD2727D89AA400039509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD2627D89AA400039509 /* AppDelegate.swift */; };
 		D497AD2B27D89AA500039509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D497AD2A27D89AA500039509 /* Assets.xcassets */; };
@@ -18,7 +23,6 @@
 		D497AD5227D89BEA00039509 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD5127D89BEA00039509 /* main.swift */; };
 		D4C9288527E9D21D00199450 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9288427E9D21D00199450 /* Commands.swift */; };
 		D4C9288727E9D86600199450 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9288627E9D86600199450 /* Shell.swift */; };
-		D4C9288E27E9E5D600199450 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = D4C9288D27E9E5D600199450 /* HotKey */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +44,13 @@
 
 /* Begin PBXFileReference section */
 		D403FA9D27E86EF700BF3BEB /* EventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListener.swift; sourceTree = "<group>"; };
+		D42DEE0A27EA215D0070F519 /* SpaceSwitcherViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSwitcherViewProtocol.swift; sourceTree = "<group>"; };
+		D42DEE0C27EA22100070F519 /* SpaceSwitcherControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSwitcherControllerProtocol.swift; sourceTree = "<group>"; };
+		D42DEE0E27EA22D10070F519 /* SpaceSwitcherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSwitcherController.swift; sourceTree = "<group>"; };
+		D42DEE1027EA28430070F519 /* SpaceSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSwitcherView.swift; sourceTree = "<group>"; };
+		D42DEE1227EA30430070F519 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D43DD05527D8A60B00AB73B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		D43DD05A27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSwitchingIndicatorView.swift; sourceTree = "<group>"; };
+		D43DD05A27D8AAF300AB73B7 /* SpaceSwitcherIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSwitcherIndicatorView.swift; sourceTree = "<group>"; };
 		D43DD05C27D8DB2B00AB73B7 /* SpaceSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSelector.swift; sourceTree = "<group>"; };
 		D497AD2327D89AA400039509 /* BetterSpaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterSpaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D497AD2627D89AA400039509 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4C9288E27E9E5D600199450 /* HotKey in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +116,9 @@
 			children = (
 				D43DD05527D8A60B00AB73B7 /* Info.plist */,
 				D497AD2627D89AA400039509 /* AppDelegate.swift */,
-				D43DD05A27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift */,
+				D43DD05A27D8AAF300AB73B7 /* SpaceSwitcherIndicatorView.swift */,
+				D42DEE1027EA28430070F519 /* SpaceSwitcherView.swift */,
+				D42DEE0E27EA22D10070F519 /* SpaceSwitcherController.swift */,
 				D497AD2A27D89AA500039509 /* Assets.xcassets */,
 				D497AD2F27D89AA500039509 /* BetterSpaces.entitlements */,
 				D497AD5127D89BEA00039509 /* main.swift */,
@@ -116,6 +126,9 @@
 				D403FA9D27E86EF700BF3BEB /* EventListener.swift */,
 				D4C9288427E9D21D00199450 /* Commands.swift */,
 				D4C9288627E9D86600199450 /* Shell.swift */,
+				D42DEE0A27EA215D0070F519 /* SpaceSwitcherViewProtocol.swift */,
+				D42DEE0C27EA22100070F519 /* SpaceSwitcherControllerProtocol.swift */,
+				D42DEE1227EA30430070F519 /* Config.swift */,
 			);
 			path = BetterSpaces;
 			sourceTree = "<group>";
@@ -154,7 +167,6 @@
 			);
 			name = BetterSpaces;
 			packageProductDependencies = (
-				D4C9288D27E9E5D600199450 /* HotKey */,
 			);
 			productName = BetterSpaces;
 			productReference = D497AD2327D89AA400039509 /* BetterSpaces.app */;
@@ -229,7 +241,6 @@
 			);
 			mainGroup = D497AD1A27D89AA400039509;
 			packageReferences = (
-				D4C9288C27E9E5D600199450 /* XCRemoteSwiftPackageReference "HotKey" */,
 			);
 			productRefGroup = D497AD2427D89AA400039509 /* Products */;
 			projectDirPath = "";
@@ -272,13 +283,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42DEE0D27EA22100070F519 /* SpaceSwitcherControllerProtocol.swift in Sources */,
+				D42DEE1127EA28430070F519 /* SpaceSwitcherView.swift in Sources */,
 				D403FA9E27E86EF700BF3BEB /* EventListener.swift in Sources */,
 				D4C9288727E9D86600199450 /* Shell.swift in Sources */,
 				D4C9288527E9D21D00199450 /* Commands.swift in Sources */,
-				D43DD05B27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift in Sources */,
+				D42DEE1327EA30430070F519 /* Config.swift in Sources */,
+				D43DD05B27D8AAF300AB73B7 /* SpaceSwitcherIndicatorView.swift in Sources */,
 				D497AD2727D89AA400039509 /* AppDelegate.swift in Sources */,
+				D42DEE0B27EA215D0070F519 /* SpaceSwitcherViewProtocol.swift in Sources */,
 				D497AD5227D89BEA00039509 /* main.swift in Sources */,
 				D43DD05D27D8DB2B00AB73B7 /* SpaceSelector.swift in Sources */,
+				D42DEE0F27EA22D10070F519 /* SpaceSwitcherController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,25 +616,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D4C9288C27E9E5D600199450 /* XCRemoteSwiftPackageReference "HotKey" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/soffes/HotKey";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D4C9288D27E9E5D600199450 /* HotKey */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4C9288C27E9E5D600199450 /* XCRemoteSwiftPackageReference "HotKey" */;
-			productName = HotKey;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D497AD1B27D89AA400039509 /* Project object */;
 }
