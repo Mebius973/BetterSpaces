@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D403FA9E27E86EF700BF3BEB /* EventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403FA9D27E86EF700BF3BEB /* EventListener.swift */; };
 		D43DD05B27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DD05A27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift */; };
 		D43DD05D27D8DB2B00AB73B7 /* SpaceSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43DD05C27D8DB2B00AB73B7 /* SpaceSelector.swift */; };
 		D497AD2727D89AA400039509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD2627D89AA400039509 /* AppDelegate.swift */; };
@@ -15,6 +16,9 @@
 		D497AD4327D89AA500039509 /* BetterSpacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD4227D89AA500039509 /* BetterSpacesUITests.swift */; };
 		D497AD4527D89AA500039509 /* BetterSpacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD4427D89AA500039509 /* BetterSpacesUITestsLaunchTests.swift */; };
 		D497AD5227D89BEA00039509 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D497AD5127D89BEA00039509 /* main.swift */; };
+		D4C9288527E9D21D00199450 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9288427E9D21D00199450 /* Commands.swift */; };
+		D4C9288727E9D86600199450 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9288627E9D86600199450 /* Shell.swift */; };
+		D4C9288E27E9E5D600199450 /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = D4C9288D27E9E5D600199450 /* HotKey */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D403FA9D27E86EF700BF3BEB /* EventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListener.swift; sourceTree = "<group>"; };
 		D43DD05527D8A60B00AB73B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D43DD05A27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSwitchingIndicatorView.swift; sourceTree = "<group>"; };
 		D43DD05C27D8DB2B00AB73B7 /* SpaceSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceSelector.swift; sourceTree = "<group>"; };
@@ -48,6 +53,8 @@
 		D497AD4227D89AA500039509 /* BetterSpacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSpacesUITests.swift; sourceTree = "<group>"; };
 		D497AD4427D89AA500039509 /* BetterSpacesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSpacesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D497AD5127D89BEA00039509 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D4C9288427E9D21D00199450 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		D4C9288627E9D86600199450 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C9288E27E9E5D600199450 /* HotKey in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +113,9 @@
 				D497AD2F27D89AA500039509 /* BetterSpaces.entitlements */,
 				D497AD5127D89BEA00039509 /* main.swift */,
 				D43DD05C27D8DB2B00AB73B7 /* SpaceSelector.swift */,
+				D403FA9D27E86EF700BF3BEB /* EventListener.swift */,
+				D4C9288427E9D21D00199450 /* Commands.swift */,
+				D4C9288627E9D86600199450 /* Shell.swift */,
 			);
 			path = BetterSpaces;
 			sourceTree = "<group>";
@@ -142,6 +153,9 @@
 			dependencies = (
 			);
 			name = BetterSpaces;
+			packageProductDependencies = (
+				D4C9288D27E9E5D600199450 /* HotKey */,
+			);
 			productName = BetterSpaces;
 			productReference = D497AD2327D89AA400039509 /* BetterSpaces.app */;
 			productType = "com.apple.product-type.application";
@@ -214,6 +228,9 @@
 				Base,
 			);
 			mainGroup = D497AD1A27D89AA400039509;
+			packageReferences = (
+				D4C9288C27E9E5D600199450 /* XCRemoteSwiftPackageReference "HotKey" */,
+			);
 			productRefGroup = D497AD2427D89AA400039509 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -255,6 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D403FA9E27E86EF700BF3BEB /* EventListener.swift in Sources */,
+				D4C9288727E9D86600199450 /* Shell.swift in Sources */,
+				D4C9288527E9D21D00199450 /* Commands.swift in Sources */,
 				D43DD05B27D8AAF300AB73B7 /* SpaceSwitchingIndicatorView.swift in Sources */,
 				D497AD2727D89AA400039509 /* AppDelegate.swift in Sources */,
 				D497AD5227D89BEA00039509 /* main.swift in Sources */,
@@ -330,6 +350,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -391,6 +412,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -578,6 +600,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D4C9288C27E9E5D600199450 /* XCRemoteSwiftPackageReference "HotKey" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soffes/HotKey";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D4C9288D27E9E5D600199450 /* HotKey */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4C9288C27E9E5D600199450 /* XCRemoteSwiftPackageReference "HotKey" */;
+			productName = HotKey;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D497AD1B27D89AA400039509 /* Project object */;
 }

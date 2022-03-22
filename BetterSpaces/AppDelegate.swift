@@ -32,6 +32,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         setupMenus()
+        
+        EventListener().register()
     }
     
     func setupMenus() {
