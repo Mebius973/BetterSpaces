@@ -14,6 +14,14 @@ struct Commands {
     
     static let GetCurrentWindowId = "/usr/local/bin/yabai -m query --windows --window | /usr/local/bin/jq .id"
     
+    static let GetTopWindowId = "/usr/local/bin/yabai -m query --windows --space | /usr/local/bin/jq 'map(select(.app!=\"\(Config.appName)\") | .id) | first'"
+    
+    static var FocusTopWindow: String {
+        let id = Shell.execute(Commands.GetTopWindowId)
+        guard id != "null" else { return "" }
+        return "/usr/local/bin/yabai -m window \(id) --focus"
+    }
+    
     static var BringSwitcherToFront: String {
         let id = Shell.execute(Commands.GetAppWindowId)
         let index = Shell.execute(Commands.GetCurrentSpace)
@@ -23,18 +31,18 @@ struct Commands {
     static var MoveLeft: String {
         let id = Shell.execute(Commands.GetAppWindowId)
         if id.isEmpty {
-            return "/usr/local/bin/yabai -m space --focus prev"
+            return "/usr/local/bin/yabai -m space --focus prev;"
         } else {
-            return "/usr/local/bin/yabai -m window \(id) --space prev; /usr/local/bin/yabai -m space --focus prev; /usr/local/bin/yabai -m window \(id) --focus"
+            return "/usr/local/bin/yabai -m window \(id) --space prev; /usr/local/bin/yabai -m space --focus prev; /usr/local/bin/yabai -m window \(id) --focus;"
         }
     }
     
     static var MoveRight: String {
         let id = Shell.execute(Commands.GetAppWindowId)
         if id.isEmpty {
-            return "/usr/local/bin/yabai -m space --focus next"
+            return "/usr/local/bin/yabai -m space --focus next;"
         } else {
-            return "/usr/local/bin/yabai -m window \(id) --space next; /usr/local/bin/yabai -m space --focus next; /usr/local/bin/yabai -m window \(id) --focus"
+            return "/usr/local/bin/yabai -m window \(id) --space next; /usr/local/bin/yabai -m space --focus next; /usr/local/bin/yabai -m window \(id) --focus;"
         }
     }
     
@@ -43,9 +51,9 @@ struct Commands {
         guard let index = Int(Shell.execute(Commands.GetCurrentSpace)) else { return ""}
         let targetSpace = index - Config.row
         if id.isEmpty {
-            return "/usr/local/bin/yabai -m space --focus \(targetSpace)"
+            return "/usr/local/bin/yabai -m space --focus \(targetSpace);"
         } else {
-            return "/usr/local/bin/yabai -m window \(id) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); /usr/local/bin/yabai -m window \(id) --focus"
+            return "/usr/local/bin/yabai -m window \(id) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); /usr/local/bin/yabai -m window \(id) --focus;"
         }
     }
     
@@ -54,29 +62,29 @@ struct Commands {
         guard let index = Int(Shell.execute(Commands.GetCurrentSpace)) else { return ""}
         let targetSpace = index + Config.row
         if id.isEmpty {
-            return "/usr/local/bin/yabai -m space --focus \(targetSpace)"
+            return "/usr/local/bin/yabai -m space --focus \(targetSpace);"
         } else {
-            return "/usr/local/bin/yabai -m window \(id) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); /usr/local/bin/yabai -m window \(id) --focus"
+            return "/usr/local/bin/yabai -m window \(id) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); /usr/local/bin/yabai -m window \(id) --focus;"
         }
     }
     
     static func MoveWindowLeft(windowId: String) -> String {
-        return "/usr/local/bin/yabai -m window \(windowId) --space prev; /usr/local/bin/yabai -m space --focus prev; /usr/local/bin/yabai -m window \(windowId) --focus"
+        return "/usr/local/bin/yabai -m window \(windowId) --space prev; /usr/local/bin/yabai -m space --focus prev; \(FocusTopWindow)"
     }
     
     static func MoveWindowRight(windowId: String) -> String {
-        return "/usr/local/bin/yabai -m window \(windowId) --space next; /usr/local/bin/yabai -m space --focus next; /usr/local/bin/yabai -m window \(windowId) --focus"
+        return "/usr/local/bin/yabai -m window \(windowId) --space next; /usr/local/bin/yabai -m space --focus next; \(FocusTopWindow)"
     }
     
     static func MoveWindowUp(windowId: String) -> String {
         guard let index = Int(Shell.execute(Commands.GetCurrentSpace)) else { return ""}
         let targetSpace = index - Config.row
-        return "/usr/local/bin/yabai -m window \(windowId) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); /usr/local/bin/yabai -m window \(windowId) --focus"
+        return "/usr/local/bin/yabai -m window \(windowId) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); \(FocusTopWindow)"
     }
     
     static func MoveWindowDown(windowId: String) -> String {
         guard let index = Int(Shell.execute(Commands.GetCurrentSpace)) else { return ""}
         let targetSpace = index + Config.row
-        return "/usr/local/bin/yabai -m window \(windowId) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); /usr/local/bin/yabai -m window \(windowId) --focus"
+        return "/usr/local/bin/yabai -m window \(windowId) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); \(FocusTopWindow)"
     }
 }

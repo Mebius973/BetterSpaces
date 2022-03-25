@@ -19,8 +19,8 @@ struct Shell {
         task.launch()
         task.waitUntilExit()
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)!
+        let output = String(data: data, encoding: .utf8)!.replacingOccurrences(of: "\n", with: "")
         
-        return output.replacingOccurrences(of: "\n", with: "")
+        return output
     }
 }

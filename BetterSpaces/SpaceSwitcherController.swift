@@ -23,6 +23,7 @@ struct SpaceSwitcherController: SpaceSwitcherControllerProtocol {
         let _ = Shell.execute(Commands.BringSwitcherToFront)
         spaceSwitcherViewDelegate.switchSpace(to: currentSpace - 1 )
         let _ = Shell.execute(Commands.MoveLeft)
+        let _ = Shell.execute(Commands.FocusTopWindow)
     }
     
     func switchSpaceRight() {
@@ -33,6 +34,7 @@ struct SpaceSwitcherController: SpaceSwitcherControllerProtocol {
         let _ = Shell.execute(Commands.BringSwitcherToFront)
         spaceSwitcherViewDelegate.switchSpace(to: currentSpace + 1 )
         let _ = Shell.execute(Commands.MoveRight)
+        let _ = Shell.execute(Commands.FocusTopWindow)
     }
     
     func switchSpaceUp()  {
@@ -43,6 +45,7 @@ struct SpaceSwitcherController: SpaceSwitcherControllerProtocol {
         let _ = Shell.execute(Commands.BringSwitcherToFront)
         spaceSwitcherViewDelegate.switchSpace(to: currentSpace - Config.column )
         let _ = Shell.execute(Commands.MoveUp)
+        let _ = Shell.execute(Commands.FocusTopWindow)
     }
     
     func switchSpaceDown()  {
@@ -53,6 +56,7 @@ struct SpaceSwitcherController: SpaceSwitcherControllerProtocol {
         let _ = Shell.execute(Commands.BringSwitcherToFront)
         spaceSwitcherViewDelegate.switchSpace(to: currentSpace + Config.column )
         let _ = Shell.execute(Commands.MoveDown)
+        let _ = Shell.execute(Commands.FocusTopWindow)
     }
     
     func switchWindowLeft() {
