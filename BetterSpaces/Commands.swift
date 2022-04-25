@@ -8,41 +8,49 @@
 import Foundation
 
 struct Commands {
-    static let GetCurrentSpace = "/usr/local/bin/yabai -m query --spaces --space | /usr/local/bin/jq '.index'"
+    static var BinPath: String {
+        #if (arch(i386) || arch(x86_64))
+        return "/usr/local/bin"
+        #else
+        return "/opt/homebrew/bin"
+        #endif
+    }
     
-    static let GetAppWindowId = "/usr/local/bin/yabai -m query --windows | /usr/local/bin/jq '.[] | select(.app==\"\(Config.appName)\") | .id'"
+    static let GetCurrentSpace = "\(BinPath)/yabai -m query --spaces --space | \(BinPath)/jq '.index'"
     
-    static let GetCurrentWindowId = "/usr/local/bin/yabai -m query --windows --window | /usr/local/bin/jq .id"
+    static let GetAppWindowId = "\(BinPath)/yabai -m query --windows | \(BinPath)/jq '.[] | select(.app==\"\(Config.appName)\") | .id'"
     
-    static let GetTopWindowId = "/usr/local/bin/yabai -m query --windows --space | /usr/local/bin/jq 'map(select(.app!=\"\(Config.appName)\") | .id) | first'"
+    static let GetCurrentWindowId = "\(BinPath)/yabai -m query --windows --window | \(BinPath)/jq .id"
+    
+    static let GetTopWindowId = "\(BinPath)/yabai -m query --windows --space | \(BinPath)/jq 'map(select(.app!=\"\(Config.appName)\") | .id) | first'"
     
     static var FocusTopWindow: String {
         let id = Shell.execute(Commands.GetTopWindowId)
         guard id != "null" else { return "" }
-        return "/usr/local/bin/yabai -m window \(id) --focus"
+        return "\(BinPath)/yabai -m window \(id) --focus"
     }
     
     static var BringSwitcherToFront: String {
         let id = Shell.execute(Commands.GetAppWindowId)
         let index = Shell.execute(Commands.GetCurrentSpace)
-        return "/usr/local/bin/yabai -m window \(id) --space \(index); /usr/local/bin/yabai -m window \(id) --focus"
+        return "\(BinPath)/yabai -m window \(id) --space \(index); \(BinPath)/yabai -m window \(id) --focus"
     }
     
     static var MoveLeft: String {
         let id = Shell.execute(Commands.GetAppWindowId)
         if id.isEmpty {
-            return "/usr/local/bin/yabai -m space --focus prev;"
+            return "\(BinPath)/yabai -m space --focus prev;"
         } else {
-            return "/usr/local/bin/yabai -m window \(id) --space prev; /usr/local/bin/yabai -m space --focus prev; /usr/local/bin/yabai -m window \(id) --focus;"
+            return "\(BinPath)/yabai -m window \(id) --space prev; \(BinPath)/yabai -m space --focus prev; \(BinPath)/yabai -m window \(id) --focus;"
         }
     }
     
     static var MoveRight: String {
         let id = Shell.execute(Commands.GetAppWindowId)
         if id.isEmpty {
-            return "/usr/local/bin/yabai -m space --focus next;"
+            return "\(BinPath)/yabai -m space --focus next;"
         } else {
-            return "/usr/local/bin/yabai -m window \(id) --space next; /usr/local/bin/yabai -m space --focus next; /usr/local/bin/yabai -m window \(id) --focus;"
+            return "\(BinPath)/yabai -m window \(id) --space next; \(BinPath)/yabai -m space --focus next; \(BinPath)/yabai -m window \(id) --focus;"
         }
     }
     
@@ -51,9 +59,9 @@ struct Commands {
         guard let index = Int(Shell.execute(Commands.GetCurrentSpace)) else { return ""}
         let targetSpace = index - Config.row
         if id.isEmpty {
-            return "/usr/local/bin/yabai -m space --focus \(targetSpace);"
+            return "\(BinPath)/yabai -m space --focus \(targetSpace);"
         } else {
-            return "/usr/local/bin/yabai -m window \(id) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); /usr/local/bin/yabai -m window \(id) --focus;"
+            return "\(BinPath)/yabai -m window \(id) --space \(targetSpace); \(BinPath)/yabai -m space --focus \(targetSpace); \(BinPath)/yabai -m window \(id) --focus;"
         }
     }
     
@@ -62,29 +70,29 @@ struct Commands {
         guard let index = Int(Shell.execute(Commands.GetCurrentSpace)) else { return ""}
         let targetSpace = index + Config.row
         if id.isEmpty {
-            return "/usr/local/bin/yabai -m space --focus \(targetSpace);"
+            return "\(BinPath)/yabai -m space --focus \(targetSpace);"
         } else {
-            return "/usr/local/bin/yabai -m window \(id) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); /usr/local/bin/yabai -m window \(id) --focus;"
+            return "\(BinPath)/yabai -m window \(id) --space \(targetSpace); \(BinPath)/yabai -m space --focus \(targetSpace); \(BinPath)/yabai -m window \(id) --focus;"
         }
     }
     
     static func MoveWindowLeft(windowId: String) -> String {
-        return "/usr/local/bin/yabai -m window \(windowId) --space prev; /usr/local/bin/yabai -m space --focus prev; /usr/local/bin/yabai -m window \(windowId) --focus"
+        return "\(BinPath)/yabai -m window \(windowId) --space prev; \(BinPath)/yabai -m space --focus prev; \(BinPath)/yabai -m window \(windowId) --focus"
     }
     
     static func MoveWindowRight(windowId: String) -> String {
-        return "/usr/local/bin/yabai -m window \(windowId) --space next; /usr/local/bin/yabai -m space --focus next; /usr/local/bin/yabai -m window \(windowId) --focus"
+        return "\(BinPath)/yabai -m window \(windowId) --space next; \(BinPath)/yabai -m space --focus next; \(BinPath)/yabai -m window \(windowId) --focus"
     }
     
     static func MoveWindowUp(windowId: String) -> String {
         guard let index = Int(Shell.execute(Commands.GetCurrentSpace)) else { return ""}
         let targetSpace = index - Config.row
-        return "/usr/local/bin/yabai -m window \(windowId) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); /usr/local/bin/yabai -m window \(windowId) --focus"
+        return "\(BinPath)/yabai -m window \(windowId) --space \(targetSpace); \(BinPath)/yabai -m space --focus \(targetSpace); \(BinPath)/yabai -m window \(windowId) --focus"
     }
     
     static func MoveWindowDown(windowId: String) -> String {
         guard let index = Int(Shell.execute(Commands.GetCurrentSpace)) else { return ""}
         let targetSpace = index + Config.row
-        return "/usr/local/bin/yabai -m window \(windowId) --space \(targetSpace); /usr/local/bin/yabai -m space --focus \(targetSpace); /usr/local/bin/yabai -m window \(windowId) --focus"
+        return "\(BinPath)/yabai -m window \(windowId) --space \(targetSpace); \(BinPath)/yabai -m space --focus \(targetSpace); \(BinPath)/yabai -m window \(windowId) --focus"
     }
 }
